@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SergonTest11ModelStoreContainer" CdmEntityContainer="SergonTest11Entities">
+    <EntitySetMapping Name="L2_Assessments">
+      <EntityTypeMapping TypeName="SergonTest11Model.L2_Assessments">
+        <MappingFragment StoreEntitySet="L2_Assessments">
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="Asset_Id" ColumnName="Asset_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="L2_Assessments_Results">
+      <EntityTypeMapping TypeName="SergonTest11Model.L2_Assessments_Results">
+        <MappingFragment StoreEntitySet="L2_Assessments_Results">
+          <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+          <ScalarProperty Name="Condition0" ColumnName="Condition0" />
+          <ScalarProperty Name="Condition1" ColumnName="Condition1" />
+          <ScalarProperty Name="Condition2" ColumnName="Condition2" />
+          <ScalarProperty Name="Condition3" ColumnName="Condition3" />
+          <ScalarProperty Name="Condition4" ColumnName="Condition4" />
+          <ScalarProperty Name="Condition5" ColumnName="Condition5" />
+          <ScalarProperty Name="Condition6" ColumnName="Condition6" />
+          <ScalarProperty Name="Skipped" ColumnName="Skipped" />
+          <ScalarProperty Name="SkippedReason" ColumnName="SkippedReason" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="SafetyScore" ColumnName="SafetyScore" />
+          <ScalarProperty Name="FunctionalityScore" ColumnName="FunctionalityScore" />
+          <ScalarProperty Name="AppearanceScore" ColumnName="AppearanceScore" />
+          <ScalarProperty Name="Asset_Id" ColumnName="Asset_Id" />
+          <ScalarProperty Name="Task_TaskId" ColumnName="Task_TaskId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="SergonTest11Model.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ProjectManager" ColumnName="ProjectManager" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectTasks">
+      <EntityTypeMapping TypeName="SergonTest11Model.ProjectTask">
+        <MappingFragment StoreEntitySet="ProjectTasks">
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="AssignedTo_Id" ColumnName="AssignedTo_Id" />
+          <ScalarProperty Name="Project_ProjectId" ColumnName="Project_ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SergonTest11Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="L2_Assessments">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Asset_Id" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="L2_Assessments_Results">
+    <Key>
+      <PropertyRef Name="RecordId" />
+    </Key>
+    <Property Name="RecordId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Condition0" Type="int" Nullable="false" />
+    <Property Name="Condition1" Type="int" Nullable="false" />
+    <Property Name="Condition2" Type="int" Nullable="false" />
+    <Property Name="Condition3" Type="int" Nullable="false" />
+    <Property Name="Condition4" Type="int" Nullable="false" />
+    <Property Name="Condition5" Type="int" Nullable="false" />
+    <Property Name="Condition6" Type="int" Nullable="false" />
+    <Property Name="Skipped" Type="bit" Nullable="false" />
+    <Property Name="SkippedReason" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" />
+    <Property Name="SafetyScore" Type="int" />
+    <Property Name="FunctionalityScore" Type="int" />
+    <Property Name="AppearanceScore" Type="int" />
+    <Property Name="Asset_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Task_TaskId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="ProjectManager" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectTasks">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TaskName" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="CompletionDate" Type="datetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Comments" Type="nvarchar(max)" />
+    <Property Name="AssignedTo_Id" Type="nvarchar" MaxLength="128" />
+    <Property Name="Project_ProjectId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_L2_Assessments_dbo_ProjectTasks_TaskId">
+    <End Role="ProjectTasks" Type="Self.ProjectTasks" Multiplicity="1" />
+    <End Role="L2_Assessments" Type="Self.L2_Assessments" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTasks">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="L2_Assessments">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_L2_Assessments_Results_dbo_L2_Assessments_Task_TaskId">
+    <End Role="L2_Assessments" Type="Self.L2_Assessments" Multiplicity="1" />
+    <End Role="L2_Assessments_Results" Type="Self.L2_Assessments_Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="L2_Assessments">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="L2_Assessments_Results">
+        <PropertyRef Name="Task_TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProjectTasks_dbo_Projects_Project_ProjectId">
+    <End Role="Projects" Type="Self.Projects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProjectTasks" Type="Self.ProjectTasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="ProjectTasks">
+        <PropertyRef Name="Project_ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SergonTest11ModelStoreContainer">
+    <EntitySet Name="L2_Assessments" EntityType="Self.L2_Assessments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="L2_Assessments_Results" EntityType="Self.L2_Assessments_Results" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectTasks" EntityType="Self.ProjectTasks" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_L2_Assessments_dbo_ProjectTasks_TaskId" Association="Self.FK_dbo_L2_Assessments_dbo_ProjectTasks_TaskId">
+      <End Role="ProjectTasks" EntitySet="ProjectTasks" />
+      <End Role="L2_Assessments" EntitySet="L2_Assessments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_L2_Assessments_Results_dbo_L2_Assessments_Task_TaskId" Association="Self.FK_dbo_L2_Assessments_Results_dbo_L2_Assessments_Task_TaskId">
+      <End Role="L2_Assessments" EntitySet="L2_Assessments" />
+      <End Role="L2_Assessments_Results" EntitySet="L2_Assessments_Results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProjectTasks_dbo_Projects_Project_ProjectId" Association="Self.FK_dbo_ProjectTasks_dbo_Projects_Project_ProjectId">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="ProjectTasks" EntitySet="ProjectTasks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

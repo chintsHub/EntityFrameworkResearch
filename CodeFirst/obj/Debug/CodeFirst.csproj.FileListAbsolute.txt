@@ -1,0 +1,13 @@
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\bin\Debug\CodeFirst.exe.config
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\bin\Debug\CodeFirst.exe
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\bin\Debug\CodeFirst.pdb
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\bin\Debug\EntityFramework.dll
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\bin\Debug\EntityFramework.SqlServer.dll
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\bin\Debug\EntityFramework.xml
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\bin\Debug\EntityFramework.SqlServer.xml
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\obj\Debug\CodeFirst.csprojResolveAssemblyReference.cache
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\obj\Debug\CodeFirst.exe
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\obj\Debug\CodeFirst.pdb
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\obj\Debug\CodeFirst.CustomerContextMigrations.Initial.resources
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\obj\Debug\CodeFirst.csproj.GenerateResource.Cache
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\CodeFirst\obj\Debug\CodeFirst.AdminContextMigrations.Initial.resources

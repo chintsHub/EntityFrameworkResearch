@@ -1,0 +1,10 @@
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseFirst\bin\Debug\DatabaseFirst.exe.config
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseFirst\bin\Debug\DatabaseFirst.exe
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseFirst\bin\Debug\DatabaseFirst.pdb
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseFirst\bin\Debug\EntityFramework.dll
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseFirst\bin\Debug\EntityFramework.SqlServer.dll
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseFirst\bin\Debug\EntityFramework.xml
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseFirst\bin\Debug\EntityFramework.SqlServer.xml
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseFirst\obj\Debug\DatabaseFirst.csprojResolveAssemblyReference.cache
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseFirst\obj\Debug\DatabaseFirst.exe
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseFirst\obj\Debug\DatabaseFirst.pdb

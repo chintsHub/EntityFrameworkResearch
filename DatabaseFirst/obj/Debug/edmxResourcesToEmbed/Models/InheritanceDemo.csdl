@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SergonTest11Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="L2_Assessments">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="Guid" Nullable="false" />
+    <Property Name="Asset_Id" Type="Guid" />
+    <NavigationProperty Name="ProjectTask" Relationship="Self.FK_dbo_L2_Assessments_dbo_ProjectTasks_TaskId" FromRole="L2_Assessments" ToRole="ProjectTasks" />
+    <NavigationProperty Name="L2_Assessments_Results" Relationship="Self.FK_dbo_L2_Assessments_Results_dbo_L2_Assessments_Task_TaskId" FromRole="L2_Assessments" ToRole="L2_Assessments_Results" />
+  </EntityType>
+  <EntityType Name="L2_Assessments_Results">
+    <Key>
+      <PropertyRef Name="RecordId" />
+    </Key>
+    <Property Name="RecordId" Type="Guid" Nullable="false" />
+    <Property Name="Condition0" Type="Int32" Nullable="false" />
+    <Property Name="Condition1" Type="Int32" Nullable="false" />
+    <Property Name="Condition2" Type="Int32" Nullable="false" />
+    <Property Name="Condition3" Type="Int32" Nullable="false" />
+    <Property Name="Condition4" Type="Int32" Nullable="false" />
+    <Property Name="Condition5" Type="Int32" Nullable="false" />
+    <Property Name="Condition6" Type="Int32" Nullable="false" />
+    <Property Name="Skipped" Type="Boolean" Nullable="false" />
+    <Property Name="SkippedReason" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SafetyScore" Type="Int32" />
+    <Property Name="FunctionalityScore" Type="Int32" />
+    <Property Name="AppearanceScore" Type="Int32" />
+    <Property Name="Asset_Id" Type="Guid" Nullable="false" />
+    <Property Name="Task_TaskId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="L2_Assessments" Relationship="Self.FK_dbo_L2_Assessments_Results_dbo_L2_Assessments_Task_TaskId" FromRole="L2_Assessments_Results" ToRole="L2_Assessments" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Guid" Nullable="false" />
+    <Property Name="ProjectName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProjectManager" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ProjectTasks" Relationship="Self.FK_dbo_ProjectTasks_dbo_Projects_Project_ProjectId" FromRole="Projects" ToRole="ProjectTasks" />
+  </EntityType>
+  <EntityType Name="ProjectTask">
+    <Key>
+      <PropertyRef Name="TaskId" />
+    </Key>
+    <Property Name="TaskId" Type="Guid" Nullable="false" />
+    <Property Name="TaskName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CompletionDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssignedTo_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Project_ProjectId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="L2_Assessments" Relationship="Self.FK_dbo_L2_Assessments_dbo_ProjectTasks_TaskId" FromRole="ProjectTasks" ToRole="L2_Assessments" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_dbo_ProjectTasks_dbo_Projects_Project_ProjectId" FromRole="ProjectTasks" ToRole="Projects" />
+  </EntityType>
+  <Association Name="FK_dbo_L2_Assessments_dbo_ProjectTasks_TaskId">
+    <End Role="ProjectTasks" Type="Self.ProjectTask" Multiplicity="1" />
+    <End Role="L2_Assessments" Type="Self.L2_Assessments" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="ProjectTasks">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="L2_Assessments">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_L2_Assessments_Results_dbo_L2_Assessments_Task_TaskId">
+    <End Role="L2_Assessments" Type="Self.L2_Assessments" Multiplicity="1" />
+    <End Role="L2_Assessments_Results" Type="Self.L2_Assessments_Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="L2_Assessments">
+        <PropertyRef Name="TaskId" />
+      </Principal>
+      <Dependent Role="L2_Assessments_Results">
+        <PropertyRef Name="Task_TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProjectTasks_dbo_Projects_Project_ProjectId">
+    <End Role="Projects" Type="Self.Project" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProjectTasks" Type="Self.ProjectTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ProjectId" />
+      </Principal>
+      <Dependent Role="ProjectTasks">
+        <PropertyRef Name="Project_ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SergonTest11Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="L2_Assessments" EntityType="Self.L2_Assessments" />
+    <EntitySet Name="L2_Assessments_Results" EntityType="Self.L2_Assessments_Results" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="ProjectTasks" EntityType="Self.ProjectTask" />
+    <AssociationSet Name="FK_dbo_L2_Assessments_dbo_ProjectTasks_TaskId" Association="Self.FK_dbo_L2_Assessments_dbo_ProjectTasks_TaskId">
+      <End Role="ProjectTasks" EntitySet="ProjectTasks" />
+      <End Role="L2_Assessments" EntitySet="L2_Assessments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_L2_Assessments_Results_dbo_L2_Assessments_Task_TaskId" Association="Self.FK_dbo_L2_Assessments_Results_dbo_L2_Assessments_Task_TaskId">
+      <End Role="L2_Assessments" EntitySet="L2_Assessments" />
+      <End Role="L2_Assessments_Results" EntitySet="L2_Assessments_Results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProjectTasks_dbo_Projects_Project_ProjectId" Association="Self.FK_dbo_ProjectTasks_dbo_Projects_Project_ProjectId">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="ProjectTasks" EntitySet="ProjectTasks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

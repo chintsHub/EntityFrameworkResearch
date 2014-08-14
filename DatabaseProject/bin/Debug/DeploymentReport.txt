@@ -1,0 +1,24 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[__MigrationHistory] (Table)
+       [dbo].[Customers] (Table)
+       [dbo].[OrderDetail] (Table)
+       [dbo].[Orders] (Table)
+       [dbo].[Orders].[IX_Customer_CustomerId] (Index)
+       [dbo].[Roles] (Table)
+       [dbo].[Users] (Table)
+       [dbo].[Users].[IX_MyRole_RoldeId] (Index)
+       [dbo].[FK_dbo.Orders_dbo.Customers_Customer_CustomerId] (Foreign Key)
+       [dbo].[FK_dbo.Users_dbo.Roles_MyRole_RoldeId] (Foreign Key)
+
+** Supporting actions

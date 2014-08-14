@@ -1,0 +1,9 @@
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseProject\bin\Debug\DatabaseProject.dacpac
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseProject\bin\Debug\DatabaseProject.dll
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseProject\bin\Debug\DatabaseProject.pdb
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseProject\obj\Debug\DatabaseProject.dll
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseProject\obj\Debug\DatabaseProject.pdb
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseProject\obj\Debug\Model.xml
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseProject\obj\Debug\refactor.xml
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseProject\obj\Debug\postdeploy.sql
+C:\Chintan\ProtoTypes\EntityFrameworkResearch\DatabaseProject\obj\Debug\predeploy.sql
